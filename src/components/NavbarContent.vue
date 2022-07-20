@@ -32,10 +32,10 @@
             <div class="offcanvas-body">
                 <!-- navbar mobile list -->
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a href="#" class="nav-link"><font-awesome-icon icon="fa-solid fa-house-chimney" /> Home</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link"><font-awesome-icon icon="fa-solid fa-book-open-reader" /> About</a></li>
-                    <li class="nav-item"><a href="#work" class="nav-link"><font-awesome-icon icon="fa-solid fa-code" /> Work</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link"><font-awesome-icon icon="fa-solid fa-envelope" /> Contact</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><font-awesome-icon icon="fa-solid fa-house-chimney" /> {{ navBar[0] }}</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link"><font-awesome-icon icon="fa-solid fa-book-open-reader" /> {{ navBar[1] }}</a></li>
+                    <li class="nav-item"><a href="#work" class="nav-link"><font-awesome-icon icon="fa-solid fa-code" /> {{ navBar[2] }}</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link"><font-awesome-icon icon="fa-solid fa-envelope" /> {{ navBar[3] }}</a></li>
                 </ul>
             </div>
         </div>
@@ -51,7 +51,8 @@ export default {
         }
     },
     props: {
-        language: Array
+        language: Array,
+        navBar: Array
     },
     methods: {
         changeTo(i) {

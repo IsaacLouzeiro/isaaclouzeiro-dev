@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarContent :language="language" @change-to="changeLang = $event" />
+        <NavbarContent :language="language" :navBar="navBar" @change-to="changeLang = $event" />
         
         <router-view/>
     </div>
@@ -17,7 +17,23 @@ export default {
                 { name: 'English', isCheck: true },
                 { name: 'Portuguese', isCheck: false }
             ],
-            changeLang: ''
+            changeLang: '',
+            navBar: [
+                'Home',
+                'About',
+                'Work',
+                'Contact'
+            ]
+        }
+    },
+    methods: {
+        portuguese() {
+            this.navBar = [
+                'Início',
+                'Sobre',
+                'Trabalho',
+                'Contato'
+            ]
         }
     },
     components: {
@@ -29,6 +45,7 @@ export default {
             if(toLang == 'Portuguese') {
                 this.language[0].isCheck = false
                 this.language[1].isCheck = true
+                this.portuguese()
             }else {
                 this.language[0].isCheck = true
                 this.language[1].isCheck = false
