@@ -13,21 +13,32 @@ export default {
     name: 'App',
     data() {
         return {
-            language: [
-                { name: 'English', isCheck: true },
-                { name: 'Portuguese', isCheck: false }
-            ],
+            language: [],
             changeLang: '',
-            navBar: [
+            navBar: []
+        }
+    },
+    methods: {
+        english() {
+            this.language = [
+                { showName: 'English', name: 'English', isCheck: true },
+                { showName: 'Portuguese', name: 'Portuguese', isCheck: false }
+            ]
+
+            this.navBar = [
                 'Home',
                 'About',
                 'Work',
                 'Contact'
             ]
-        }
-    },
-    methods: {
+        },
+
         portuguese() {
+            this.language = [
+                { showName: 'Inglês', name: 'English', isCheck: false },
+                { showName: 'Português', name: 'Portuguese', isCheck: true }
+            ]
+            
             this.navBar = [
                 'Início',
                 'Sobre',
@@ -36,19 +47,19 @@ export default {
             ]
         }
     },
+    created() {
+        this.english()
+    },
     components: {
         NavbarContent
     },
     watch: {
         changeLang(toLang) {
-            console.log(toLang)
+            // console.log(toLang)
             if(toLang == 'Portuguese') {
-                this.language[0].isCheck = false
-                this.language[1].isCheck = true
                 this.portuguese()
             }else {
-                this.language[0].isCheck = true
-                this.language[1].isCheck = false
+                this.english()
             }
         }
     }
