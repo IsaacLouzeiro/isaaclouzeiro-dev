@@ -28,7 +28,7 @@ export default {
             this.navBar = [
                 'Home',
                 'About',
-                'Work',
+                'My Work',
                 'Contact'
             ]
         },
@@ -42,7 +42,7 @@ export default {
             this.navBar = [
                 'Início',
                 'Sobre',
-                'Trabalho',
+                'Meus Trabalhos',
                 'Contato'
             ]
         }

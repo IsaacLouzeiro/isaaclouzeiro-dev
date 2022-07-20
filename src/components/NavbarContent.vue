@@ -20,7 +20,7 @@
 
                             @click="changeTo(index)"
                         >
-                            <button type="button">{{ lang.name }}</button>
+                            <button type="button">{{ lang.showName }}</button>
                         </li>
                     </ul>
                 </div>
