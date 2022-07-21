@@ -90,6 +90,9 @@ export default {
 
     #app {
         padding: 1rem;
+        position: relative;
+        max-width: 1440px;
+        margin: auto;
     }
 
 </style>
