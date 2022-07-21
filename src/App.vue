@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <NavbarContent :language="language" :navBar="navBar" @change-to="changeLang = $event" />
+    <div class="row h-100 g-0">
+        <NavbarContent class="col-1" :language="language" :navBar="navBar" @change-to="changeLang = $event" />
         
-        <router-view/>
+        <router-view class="col-sm-11 gx-sm-5" />
     </div>
 </template>
 
@@ -83,9 +83,10 @@ export default {
         margin: 0;
         padding: 0;
         font-family: 'Ubuntu', 'Trebuchet MS', sans-serif;
+        box-sizing: border-box;
     }
 
-    html, body { width: 100%; height: 100%; }
+    html, body, #app { width: 100%; height: 100%; }
 
     #app {
         padding: 1rem;

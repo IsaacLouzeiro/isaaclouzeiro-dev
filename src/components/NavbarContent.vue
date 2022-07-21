@@ -1,5 +1,47 @@
 <template>
-    <div>
+    <div id="navbarContent">
+        <!-- navbar laptop/pc content -->
+        <div id="largeContainer" class="d-sm-block d-none">
+            <nav class="d-flex flex-column align-items-center justify-content-center">
+                <a class="navbar-brand" href="#"><img src="@/assets/img/logo.png" alt="Logo Isaac Louzeiro"></a>
+
+                <ul class="nav flex-column">
+                    <li class="list-item">
+                        <button><font-awesome-icon icon="fa-solid fa-house-chimney" /><span> {{ navBar[0] }} </span></button>
+                    </li>
+                    <li class="list-item">
+                        <button><font-awesome-icon icon="fa-solid fa-book-open-reader" /><span> {{ navBar[1] }} </span></button>
+                    </li>
+                    <li class="list-item">
+                        <button><font-awesome-icon icon="fa-solid fa-code" /><span> {{ navBar[2] }} </span></button>
+                    </li>
+                    <li class="list-item">
+                        <button><font-awesome-icon icon="fa-solid fa-envelope" /><span> {{ navBar[3] }} </span></button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- language -->
+            <div class="btn-group dropend language-dropdown">
+                <button type="button" class="btn lang" data-bs-toggle="dropdown" aria-expanded="false">
+                    <font-awesome-icon icon="fa-solid fa-language" />
+                </button>
+                <ul class="dropdown-menu">
+                    <!-- Dropdown menu links -->
+                    <li 
+                        class="dropdown-item" 
+                        v-for="(lang, index) in language" 
+                        :key="index" 
+                        :class="{ disabled: lang.isCheck }"
+
+                        @click="changeTo(index)"
+                    >
+                        <button type="button">{{ lang.showName }}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!-- navbar mobile content -->
         <div id="mobileContainer" class="d-block d-sm-none">
             <!-- open navbar button -->
@@ -69,51 +111,132 @@ export default {
 <style lang="scss" scoped>
     @import '@/assets/colors/colors.scss'; // colors
 
-    // navbar mobile content
-    #mobileContainer {
-        // all buttons
-        button {
-            padding: 0;
-            margin: 0;
-            background-color: rgba(0,0,0,0);
-            border: none;
-            font-size: 1.9em;
-            color: $color-l-1;
+    #navbarContent {
+        height: 100%;
 
-            // bar button
-            &.bar {
-                color: $color-l-1;
-            }
-            // lang button
-            &.lang {
-                color: $color-l-3;
+        #largeContainer {
+            height: 100%;
+            nav {
+                height: 100%;
             }
         }
 
-        // change language button
-        .dropdown-menu {
-            background-color: rgba($color-l-3, 1);
-            .dropdown-item {
-                padding: 0;
-                button {
-                    font-size: 1em;
-                    color: $color-l-1;
-                    width: 100%;
-                    padding: 3px 0 3px 10px;
-                    text-align: start;
+        @media only screen and (max-width: 575px) {
+            height: auto;
+            position: absolute;
+        }
+    }
 
-                    &:hover, &:active {
-                        background-color: $color-l-1;
-                        color: $color-d-1;
+    // all buttons
+    button {
+        padding: 0;
+        margin: 0;
+        background-color: rgba(0,0,0,0);
+        border: none;
+        font-size: 1.9em;
+        color: $color-l-1;
+
+        // bar button
+        &.bar {
+            color: $color-l-1;
+        }
+        // lang button
+        &.lang {
+            color: $color-l-3;
+        }
+    }
+    // change language button
+    .dropdown-menu {
+        background-color: rgba($color-l-3, 1);
+        .dropdown-item {
+            padding: 0;
+            button {
+                font-size: 1em;
+                color: $color-l-1;
+                width: 100%;
+                padding: 3px 0 3px 10px;
+                text-align: start;
+
+                &:hover, &:active {
+                    background-color: $color-l-1;
+                    color: $color-d-1;
+                }
+            }
+
+            &.disabled {
+                background-color: rgba($color-l-1, .3);
+            }
+        }
+    }
+
+    // navbar large content
+    #largeContainer {
+
+        // language
+        .language-dropdown {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+
+            button.lang {
+                color: $color-l-1;
+            }
+        }
+        
+        nav {
+            // navbar brand
+            .navbar-brand {
+                top: 1rem;
+                position: absolute;
+                
+                img {
+                    width: 72px;
+
+                    @media only screen and (max-width: 767px) {
+                        width: 60px;
                     }
                 }
 
-                &.disabled {
-                    background-color: rgba($color-l-1, .3);
+            }
+
+            ul {
+                li {
+                    button {
+                        padding: 0;
+                        margin: 10px 0;
+                        background-color: rgba($color-l-1, .5);
+                        border: none;
+                        font-size: 1.3em;
+                        color: $color-d-2;
+                        width: 55px;
+                        height:50px;
+                        border-radius: 5px;
+
+                        span {
+                            font-size: .7em;
+                            margin-top: .3em;
+                            margin-left: 1.5em;
+                            color: $color-l-1;
+                            position: absolute;
+                            display: none;
+                        }
+                        &:hover span {
+                            display: inline-block;
+                        }
+
+                        @media only screen and (max-width: 767px) {
+                            font-size: 1.2em;
+                            width: 50px;
+                            height:45px;
+                        }
+                    }
                 }
             }
         }
+    }
 
+    // navbar mobile content
+    #mobileContainer {
         // navbar mobile width content
         .offcanvas {
             width: 20rem;
