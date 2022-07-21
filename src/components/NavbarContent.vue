@@ -198,9 +198,10 @@ export default {
                 }
 
             }
-
+            // navbar list
             ul {
                 li {
+                    // navbar button
                     button {
                         padding: 0;
                         margin: 10px 0;
@@ -213,15 +214,33 @@ export default {
                         border-radius: 5px;
 
                         span {
-                            font-size: .7em;
+                            font-size: .75em;
                             margin-top: .3em;
-                            margin-left: 1.5em;
+                            margin-left: 1.45em;
                             color: $color-l-1;
                             position: absolute;
                             display: none;
+                            opacity: .7;
                         }
                         &:hover span {
                             display: inline-block;
+                        }
+
+                        &.active {
+                            background-color: rgba($color-d-2, .5);
+                            color: $color-l-1;
+
+                            span {
+                                display: inline-block;
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 5px;
+                                margin-top: .7em;
+                                opacity: 1;
+                                color: rgba($color-l-1, .5);
+                                background-color: rgba($color-l-1, .5);
+                                overflow: hidden;
+                            }
                         }
 
                         @media only screen and (max-width: 767px) {
