@@ -7,16 +7,24 @@
 
                 <ul class="nav flex-column">
                     <li class="list-item">
-                        <button><font-awesome-icon icon="fa-solid fa-house-chimney" /><span> {{ navBar[0] }} </span></button>
+                        <a href="#" class="button">
+                            <font-awesome-icon icon="fa-solid fa-house-chimney" /><span> {{ navBar[0] }} </span>
+                        </a>
                     </li>
                     <li class="list-item">
-                        <button><font-awesome-icon icon="fa-solid fa-book-open-reader" /><span> {{ navBar[1] }} </span></button>
+                        <a href="#about" class="button">
+                            <font-awesome-icon icon="fa-solid fa-book-open-reader" /><span> {{ navBar[1] }} </span>
+                        </a>
                     </li>
                     <li class="list-item">
-                        <button><font-awesome-icon icon="fa-solid fa-code" /><span> {{ navBar[2] }} </span></button>
+                        <a href="#work" class="button">
+                            <font-awesome-icon icon="fa-solid fa-code" /><span> {{ navBar[2] }} </span>
+                        </a>
                     </li>
                     <li class="list-item">
-                        <button><font-awesome-icon icon="fa-solid fa-envelope" /><span> {{ navBar[3] }} </span></button>
+                        <a href="#contact" class="button">
+                            <font-awesome-icon icon="fa-solid fa-envelope" /><span> {{ navBar[3] }} </span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -128,7 +136,7 @@ export default {
     }
 
     // all buttons
-    button {
+    button, .button {
         padding: 0;
         margin: 0;
         background-color: rgba(0,0,0,0);
@@ -202,7 +210,7 @@ export default {
             ul {
                 li {
                     // navbar button
-                    button {
+                    .button {
                         padding: 0;
                         margin: 10px 0;
                         background-color: rgba($color-l-1, .5);
@@ -212,15 +220,20 @@ export default {
                         width: 55px;
                         height:50px;
                         border-radius: 5px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
 
                         span {
                             font-size: .75em;
                             margin-top: .3em;
-                            margin-left: 1.45em;
+                            margin-left: 3.8em;
                             color: $color-l-1;
                             position: absolute;
                             display: none;
                             opacity: .7;
+                            align-self: flex-start;
                         }
                         &:hover span {
                             display: inline-block;
