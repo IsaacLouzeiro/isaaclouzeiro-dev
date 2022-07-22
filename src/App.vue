@@ -2,7 +2,13 @@
     <div class="row h-100 g-0">
         <NavbarContent class="col-1" :language="language" :navBar="navBar" @change-to="changeLang = $event" />
         
-        <router-view class="col-sm-11 gx-sm-5" />
+        <router-view 
+            class="col-sm-11 gx-sm-5"
+
+            :homeText="homeText"    
+            :homeButtons="homeButtons"    
+            :homeIsaac="homeIsaac"    
+        />
     </div>
 </template>
 
@@ -13,13 +19,22 @@ export default {
     name: 'App',
     data() {
         return {
+            // navbar content
             language: [],
             changeLang: '',
-            navBar: []
+            navBar: [],
+
+            // home content
+            homeText: [],
+            homeButtons: [],
+            homeIsaac: []
         }
     },
+
+    // translation config
     methods: {
         english() {
+            // navbar content
             this.language = [
                 { showName: 'English', name: 'English', isCheck: true },
                 { showName: 'Portuguese', name: 'Portuguese', isCheck: false }
@@ -30,10 +45,34 @@ export default {
                 'About',
                 'My Work',
                 'Contact'
-            ]
+            ],
+
+            // home content
+            this.homeText = [ 
+                "Welcome to my website.",
+                "Recently my passion is creating websites. I'm very curious and constantly searching for new things to learn."
+            ],
+
+            this.homeButtons = [
+                {
+                    name: 'Web Resume',
+                    link: 'https://isaac-resume.web.app/'
+                },
+                {
+                    name: 'Codepen',
+                    link: 'https://codepen.io/isaaclouzeiro'
+                },
+                {
+                    name: 'Github',
+                    link: 'https://github.com/IsaacLouzeiro'
+                }
+            ],
+
+            this.homeIsaac = ['Isaac Louzeiro', 'Front-End Web Developer']
         },
 
         portuguese() {
+            // navbar content
             this.language = [
                 { showName: 'Inglês', name: 'English', isCheck: false },
                 { showName: 'Português', name: 'Portuguese', isCheck: true }
@@ -44,7 +83,30 @@ export default {
                 'Sobre',
                 'Meus Trabalhos',
                 'Contato'
-            ]
+            ],
+
+            // home content
+            this.homeText = [ 
+                "Bem vindo ao meu site.",
+                "Recentemente minha paixão é criar sites. Eu sou bastante curioso e estou constantemente procurando coisas novas para aprender."
+            ],
+
+            this.homeButtons = [
+                {
+                    name: 'Currículo Web',
+                    link: 'https://isaac-resume.web.app/'
+                },
+                {
+                    name: 'Codepen',
+                    link: 'https://codepen.io/isaaclouzeiro'
+                },
+                {
+                    name: 'Github',
+                    link: 'https://github.com/IsaacLouzeiro'
+                }
+            ],
+
+            this.homeIsaac = ['Isaac Louzeiro', 'Desenvolvedor Web Front-End']
         }
     },
     created() {
