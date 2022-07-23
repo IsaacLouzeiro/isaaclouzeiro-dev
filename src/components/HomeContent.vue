@@ -58,6 +58,11 @@ export default {
 
                         @media only screen and (max-width: 380px) {
                             padding: 5px 8px;
+                            font-size: 1em;
+                        }
+
+                        @media only screen and (max-width: 354px) {
+                            padding: 5px 8px;
                             font-size: .9em;
                         }
                     }
