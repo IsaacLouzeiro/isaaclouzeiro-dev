@@ -12,7 +12,7 @@
         </div>
 
         <div class="homeIsaac">
-            <img src="@/assets/img/me.jpeg" alt="Isaac Louzeiro">
+            <img src="@/assets/img/me.jpeg" :alt="homeIsaac[0]">
             <h3>{{ homeIsaac[0] }}</h3>
             <p>{{ homeIsaac[1] }}</p>
         </div>
@@ -55,6 +55,11 @@ export default {
                         background-color: $color-d-2;
                         color: $color-l-1;
                         margin-right: .5em;
+
+                        @media only screen and (max-width: 380px) {
+                            padding: 5px 8px;
+                            font-size: .9em;
+                        }
                     }
                 }
             }
@@ -70,6 +75,11 @@ export default {
                 height: 10em;
                 border-radius: 5em;
                 border: 5px solid $color-l-3;
+
+                @media only screen and (max-width: 380px) {
+                    width: 9em;
+                    height: 9em;
+                }
             }
 
             h3, p { color: $color-l-1; }
